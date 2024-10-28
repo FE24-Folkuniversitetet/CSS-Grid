@@ -1,0 +1,55 @@
+
+
+/* Flow Grid/Grid relative: Element placeras automatiskt relativt till andra celler i griden. 
+
+-	När du placerar ett element enligt grid relative på en grid, så flyttas det beroende på hur gridens kolumner och rader är uppdelade. Elementet anpassar sig alltså automatiskt till andra element och strukturen på griden. */
+
+* {
+    box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 120px;
+    gap: 1rem;  
+}
+
+header, aside, main {
+    background-color: #93f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* När vi lägger till ett element kommer det automatiskt att hamna i nästa lediga cell, relativt till andra element i gridens struktur. */
+
+header {
+    /* auto = följ CSS-flödet, alltså utgå från där du är nu 
+    och spänn över sex kolumner */  
+    grid-column: auto / span 6;
+}
+
+aside {
+    /* auto = följ CSS-flödet, alltså utgå från där du är nu 
+    och spänn över två kolumner */  
+    grid-column: auto / span 2;
+    grid-row: auto / span 5;
+}
+
+main {
+    /* auto = följ CSS-flödet, alltså utgå från där du är nu 
+    och spänn över fyra kolumner */   
+    grid-column: auto / span 4;
+    grid-row: auto / span 5;
+}

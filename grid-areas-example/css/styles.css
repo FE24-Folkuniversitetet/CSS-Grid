@@ -1,0 +1,62 @@
+
+/* Grid Templates/Grid Area: Namngivna områden som gör det lätt att skapa flexibla och strukturerade layouter. 
+
+- 	Ett sätt att gruppera och namnge områden i din grid-layout. Istället för att placera element i specifika kolumner och rader kan du ge olika delar av griden namn och sedan placera element i dessa områden. Det gör det lättare att skapa en tydlig och flexibel layout eftersom du enkelt kan förändra placeringen av element genom att referera till namn.
+ */
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} 
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 100px auto;
+  gap: 1rem;
+  grid-template-areas:
+    ". header header header header ."
+    "main main main main sidebar sidebar"
+    "footer footer footer footer footer footer";
+  /* punkten (.) används när man inte vill populera en viss kolumn */
+}
+
+header,
+main,
+aside,
+footer {
+  background-color: #93f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Med detta upplägg kan vi enkelt ändra layouten genom att bara justera grid-template-areas utan att behöva ändra positioneringen för varje enskilt element. */
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+footer {
+  grid-area: footer;
+}
